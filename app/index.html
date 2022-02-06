@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+    <!-- Moralis SDK code -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="https://github.com/WalletConnect/walletconnect-monorepo/releases/download/1.7.1/web3-provider.min.js"></script>
+    <script defer src="render.js"></script>
+  </head>
+  <body>
+    <div class="navbar is-primary has-shadow is-fixed-top mb-auto"><span class="navbar-title is-size-3 has-text-weight-medium">NFT Escrow With Moralis</span></div>
+    <section class="section is-flex">
+      <div>
+        <button id="btn-walletconnect" class="button is-primary">Login with WalletConnect</button>
+        <button id="btn-metamask" class="button is-primary">Login with MetaMask</button>
+        <button id="btn-logout" class="button is-danger mb-2 is-hidden">Logout</button>
+        <br>
+        <div id="card0" class="container ml-1 is-hidden">
+          <div id="card1" class="container box mr-1">
+            <button id="btn-list" class="button is-link">List NFTs</button>
+            <!-- <button id="btn-send" class="button is-info">Send</button> -->
+            <button id="btn-receive" class="button is-info">Receive</button>
+          </div>
+          <div id="imageContainer" class="container box mr-1 is-hidden">
+            <h3 class="tag is-info is-light is-medium">Select NFT to send: </h3>
+            <br>
+          </div>
+          <span id="balance-text" class="notification is-info has-text-weight-medium is-light mt-2">Balance will appear here</span>
+        </div>
+      </div>
+      <div id="modal-send" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Send NFT</p>
+            <button class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+            NFT Contract Address: <br><input class="input" type="text" name="contract" id="send-contract" value=""><br>
+            Token ID: <br><input class="input" type="text" name="tokenId" id="send-tokenid" value=""><br>
+            Token Type: <br><input class="input" type="text" name="tokenType" id="send-type" value="" disabled><br>
+            Receiver: <br><input class="input" type="text" name="receiver" id="send-receiver" value=""><br>
+            Price: <br><input type="text" class="input" name="price" id="send-price" value=""><br>
+          </section>
+          <footer class="modal-card-foot">
+            <button id="sendBtn-modal" class="button is-info">Send</button>
+            <button class="button cancel-btn">Cancel</button>
+            <span id="status" class="notification is-info has-text-weight-medium is-light">STATUS will appear here</span>
+          </footer>
+        </div>
+      </div>
+    </section>
+
+    <!-- <script>
+      // connect to Moralis server
+
+      const serverUrl = "https://n0tiijqcgfhb.usemoralis.com:2053/server";
+      const appId = "PwWTwXwGlycdGyyZDgJifk18n2lHMyyVNXtrfc2t";
+      Moralis.start({ serverUrl, appId });
+
+    </script> -->
+  </body>
+</html>
